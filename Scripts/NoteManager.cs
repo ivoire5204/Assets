@@ -4,29 +4,22 @@ using UnityEngine;
 
 public class NoteManager : MonoBehaviour
 {
+    public int bpm = 0;
+    double currentTime = 0d;
+
+    [SerializeField] Transform tfNoteAppear = null;
+    [SerializeField] GameObject goNote = null;
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        Pattern pattern = new Pattern(4,0,0,4);
-        // tempdata
-        pattern.addNote;
-        pattern.addNote(1.0,0,0);
-        pattern.addNote(1.5,0,0);
-        pattern.addNote(2.0,0,0);
-        */
-        public int bpm = 0;
-        double currentTime = 0d;
+        currentTime += Time.deltaTime;
 
-        [SerializeField] Transform tfNoteAppear = null;
-        [SerializeField] GameObject goNote = null;
-
-        // Update is called once per frame
-        void Update()
+        if(currentTime >= 60d / bpm) // 이후 비트 정보를 조건문에 넣음. bull IsNoteCreated.
         {
+            GameObject t_note = Instantiate(goNote, tfNoteAppear.position, Quaternion.identity);
             currentTime += Time.deltaTime;
-            
+            currentTime -= 60d / bpm;
         }
     }
 }
