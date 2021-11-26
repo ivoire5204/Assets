@@ -19,6 +19,7 @@ public class NoteManager : MonoBehaviour
         {
             GameObject t_note = Instantiate(goNote, tfNoteAppear.position, Quaternion.identity);
             currentTime += Time.deltaTime;
+            t_note.transform.SetParent(this.transform);
             currentTime -= 60d / bpm;
         }
     }
