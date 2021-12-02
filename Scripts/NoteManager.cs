@@ -14,7 +14,7 @@ public class Noteinfo {
 public class NoteManager : MonoBehaviour
 {
     public void createNote(List<Noteinfo> line, Transform tfNoteAppear, GameObject goNote, double currentTime) {
-        if(currentTime >= line[0].time) {
+        if (currentTime >= line[0].time) {
             GameObject t_note = Instantiate(goNote, tfNoteAppear.position, Quaternion.identity);
             currentTime += Time.deltaTime;
             t_note.transform.SetParent(this.transform);
@@ -49,6 +49,13 @@ public class NoteManager : MonoBehaviour
     public List<Noteinfo> line2 = new List<Noteinfo>();
     public List<Noteinfo> line3 = new List<Noteinfo>();
     public List<Noteinfo> line4 = new List<Noteinfo>();
+
+    // 임시 데이터
+    public Noteinfo temp;
+    foreach (double j in [0.0, 1.0, 2.0, 3.0]) {
+        temp = new Noteinfo(j, 0);
+        line1.Add(temp);
+    }
 
     // Update is called once per frame
     void Update()
