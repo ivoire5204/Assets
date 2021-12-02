@@ -20,16 +20,6 @@ public void createNote(List<Noteinfo> line, Transform tfNoteAppear, GameObject g
     }
 }
 
-/*
-            if(currentTime >= line1[0].time) // currentTime >= notetime 식으로? 배열 첫째 객체의 시간값 대조. 이후 해당 객체 삭제. 
-        {
-            GameObject t_note = Instantiate(goNote1, tfNoteAppear1.position, Quaternion.identity);
-            currentTime += Time.deltaTime;
-            t_note.transform.SetParent(this.transform);
-            line1.RemoveAt(0);
-        }
-*/
-
 public class NoteManager : MonoBehaviour
 {
     public int bpm = 0;
