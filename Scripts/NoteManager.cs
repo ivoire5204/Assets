@@ -11,17 +11,17 @@ public class Noteinfo {
     }
 }
 
-public void createNote(List<Noteinfo> line, Transform tfNoteAppear, GameObject goNote, double currentTime) {
-    if(currentTime >= line[0].time) {
-        GameObject t_note = Instantiate(goNote, tfNoteAppear.position, Quaternion.identity);
-        currentTime += Time.deltaTime;
-        t_note.transform.SetParent(this.transform);
-        line.RemoveAt(0);
-    }
-}
-
 public class NoteManager : MonoBehaviour
 {
+    public void createNote(List<Noteinfo> line, Transform tfNoteAppear, GameObject goNote, double currentTime) {
+        if(currentTime >= line[0].time) {
+            GameObject t_note = Instantiate(goNote, tfNoteAppear.position, Quaternion.identity);
+            currentTime += Time.deltaTime;
+            t_note.transform.SetParent(this.transform);
+            line.RemoveAt(0);
+        }
+    }
+
     public int bpm = 0;
     double currentTime = 0d;
 
@@ -54,7 +54,6 @@ public class NoteManager : MonoBehaviour
     void Update()
     {
         currentTime += Time.deltaTime;
-        
         createNote(line1, tfNoteAppear1, goNote1, currentTime);
         createNote(line2, tfNoteAppear2, goNote2, currentTime);
         createNote(line3, tfNoteAppear3, goNote3, currentTime);
